@@ -1,4 +1,6 @@
-public class Animal {
+package animals;
+
+public abstract class Animal {
     private String name;
     private int age;
     private double weight;
@@ -52,16 +54,20 @@ public class Animal {
         this.color = color;
     }
 
+    private String getAgeDefinition() {
+        if (age % 100 == 11 || age % 100 == 12 || age % 100 == 13 || age % 100 == 14) {
+            return " лет"; // внчале всегда проверяю возраст на предмет исключения от 11 до 14
+        } else if (age % 10 == 1) {
+            return " год";
+        } else if (age % 10 == 2 || age % 10 == 3 || age % 10 == 4) {
+            return " года";
+        } else {
+            return " лет";
+        }
+    }
+
     @Override
     public String toString() {
-        String yearDefinition;
-        if (age == 1) {
-            yearDefinition = " год";
-        } else if (age >= 2 && age <= 4) {
-            yearDefinition = " года";
-        } else {
-            yearDefinition = " лет";
-        }
-        return "Привет! Меня зовут " + name + ", мне " + age + yearDefinition + ", я вешу - " + weight + " кг, мой цвет - " + color + ".";
+        return "Привет! Меня зовут " + name + ", мне " + age + getAgeDefinition() + ", я вешу - " + weight + " кг, мой цвет - " + color + ".";
     }
 }
