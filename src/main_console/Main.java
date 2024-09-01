@@ -14,7 +14,7 @@ public class Main {
         List<Animal> listOfAnimals = new ArrayList<>();
         Command command;
         while (true) {
-            System.out.printf("Пожалуйста, введите одну из комманд: %s\n", Arrays.toString(Command.values()));
+            System.out.printf("Пожалуйста, введите одну из команд: %s\n", Arrays.toString(Command.values()));
             String commandString = scanner.nextLine().trim().toUpperCase();
             if (Arrays.stream(Command.values()).map(Object::toString).anyMatch(s -> s.equals(commandString))) { // Вначале создает поток из массива энамов, потом каждый элемен преобразует в стринг (чтобы с искомым элементом были одного типа), а затем совершает поиск среди этого массива
                 command = Command.valueOf(commandString);

@@ -45,7 +45,7 @@ public class AnimalProperties {
             }
             j++;
         }
-        System.out.println("Какого цвета ваше животное?"); // на цвет тоже можно поставить ограничения, но уже не вижу смысла в этом
+        System.out.println("Какого цвета ваше животное?"); // на цвет тоже можно поставить ограничения, но не вижу особого смысла в этом
         animal.setColor(scanner.nextLine());
         return true;
     }
