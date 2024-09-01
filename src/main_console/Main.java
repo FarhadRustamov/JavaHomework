@@ -20,18 +20,25 @@ public class Main {
                 command = Command.valueOf(commandString);
                 switch (command) {
                     case ADD:
-                        while (true) {
-                            System.out.printf("Какое животное вы хотите создать: %s\n", Arrays.toString(AnimalSpecies.values()));
+                        int i = 0;
+                        while (i < 3) {
+                            System.out.printf("Какое животное вы хотите создать: %s\n", Arrays.toString(AnimalSpecies.values()) + "?");
                             String animalString = scanner.nextLine().trim().toUpperCase();
                             if (Arrays.stream(AnimalSpecies.values()).map(Object::toString).anyMatch(s -> s.equals(animalString))) {
                                 Animal animal = AnimalFactory.createAnimal(AnimalSpecies.valueOf(animalString));
-                                AnimalProperties.fillAnimalProperties(animal, scanner);
-                                listOfAnimals.add(animal);
-                                animal.say();
+                                boolean isCreated = AnimalProperties.fillAnimalProperties(animal, scanner);
+                                if (isCreated) {
+                                    listOfAnimals.add(animal);
+                                    animal.say();
+                                }
+                                break;
+                            } else if (i == 2) {
+                                System.out.println("Количество попыток исчерпано! Не удалось создать животное!");
                                 break;
                             } else {
                                 System.out.print("Такого животного не существует! ");
                             }
+                            i++;
                         }
                         break;
                     case LIST:
