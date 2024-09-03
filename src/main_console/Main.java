@@ -16,7 +16,7 @@ public class Main {
         while (true) {
             System.out.printf("Пожалуйста, введите одну из команд: %s\n", Arrays.toString(Command.values()));
             String commandString = scanner.nextLine().trim().toUpperCase();
-            if (Arrays.stream(Command.values()).map(Object::toString).anyMatch(s -> s.equals(commandString))) { // Вначале создает поток из массива энамов, потом каждый элемен преобразует в стринг (чтобы с искомым элементом были одного типа), а затем совершает поиск среди этого массива
+            if (Arrays.stream(Command.values()).map(Object::toString).anyMatch(s -> s.equals(commandString))) { // Вначале создает поток из массива энамов, потом каждый элемент преобразует в стринг (чтобы с искомым элементом были одного типа), а затем совершает поиск среди этого массива
                 command = Command.valueOf(commandString);
                 switch (command) {
                     case ADD:
@@ -52,7 +52,7 @@ public class Main {
                         break;
                     case EXIT:
                         scanner.close();
-                        System.exit(-1);
+                        System.exit(0);
                 }
             } else {
                 System.out.print("Неверная команда! ");
