@@ -1,8 +1,8 @@
 package animals;
 
-import abilities.Flying;
+import capabilities.Flyable;
 
-public class Duck extends Animal implements Flying {
+public class Duck extends Animal implements Flyable {
 
     @Override
     public void say() {
